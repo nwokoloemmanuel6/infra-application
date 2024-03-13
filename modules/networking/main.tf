@@ -209,8 +209,8 @@ resource "aws_security_group" "three_tier_frontend_app_sg" {
   }
 
   ingress {
-    from_port       = 80
-    to_port         = 80
+    from_port       = 3000
+    to_port         = 3000
     protocol        = "tcp"
     security_groups = [aws_security_group.three_tier_lb_sg.id]
   }
@@ -229,8 +229,8 @@ resource "aws_security_group" "three_tier_backend_app_sg" {
   description = "Allow Inbound HTTP from FRONTEND APP, and SSH inbound traffic from Bastion"
 
   ingress {
-    from_port       = 80
-    to_port         = 80
+    from_port       = 8800
+    to_port         = 8800
     protocol        = "tcp"
     security_groups = [aws_security_group.three_tier_frontend_app_sg.id]
   }
