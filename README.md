@@ -1,9 +1,11 @@
 # DEPLOYING A THREE TIER ARCHITECTURE TO DEPLOY NGINX APPLICATION USING CI/CD
 
+<!-- 
+![architecture diagram](/Images/application%20image.jpg){: .center-image } -->
 
-![architecture diagram](/Images/application%20image.jpg){: .center-image }
-
-
+<p align="center">
+  <img src="./Images/application image.jpg" alt="architecture diagram">
+</p>
 
 The three-tier architecture with a load balancer, autoscaling for the web and application tiers, and a web, application, and database tier in separate subnets. In order to provide SSH access to the instances and internet connectivity, a Bastion Host and Nat Gatway were established. The procedure was made simple to replicate and reuse by using Terraform modules. 
 
