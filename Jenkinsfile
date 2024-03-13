@@ -38,6 +38,22 @@ pipeline {
             }
         }
 
+
+      stage("destroy infrastructure") {
+            when {
+                expression { params.ENVIRONMENT == 'destroy' }
+            }
+            steps {
+                script {
+                    dir('terraform') {
+                        sh "terraform destroy -auto-approve -var-file=variables.tfvars"
+                      }
+                    }
+                }
+             }
+         }
+       }
+
         stage("Destroy a s3 Bucket") {
             when {
                 expression { params.ENVIRONMENT == 'destroy' }
@@ -52,17 +68,3 @@ pipeline {
             }
         }
 
-        stage("destroy infrastructure") {
-            when {
-                expression { params.ENVIRONMENT == 'destroy' }
-            }
-            steps {
-                script {
-                    dir('terraform') {
-                        sh "terraform destroy -auto-approve -var-file=variables.tfvars"
-                    }
-                }
-            }
-        }
-    }
-}
