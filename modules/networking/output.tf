@@ -31,6 +31,10 @@ output "lb_sg" {
   value = aws_security_group.three_tier_lb_sg.id
 }
 
+output "lb_backend_sg" {
+  value = aws_security_group.three_tier_backend_lb_sg.id
+}
+
 output "public_subnets" {
   value = aws_subnet.three_tier_public_subnets.*.id
 }

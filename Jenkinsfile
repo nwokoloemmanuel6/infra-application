@@ -24,7 +24,7 @@ pipeline {
             }
         }
 
-        stage("Create an EKS Cluster") {
+        stage("Create a infrastructure") {
             when {
                 expression { params.ENVIRONMENT == 'create' }
             }
