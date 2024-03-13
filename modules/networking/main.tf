@@ -176,6 +176,26 @@ resource "aws_security_group" "three_tier_lb_sg" {
   }
 }
 
+resource "aws_security_group" "three_tier_backend_lb_sg" {
+  name        = "three_tier_backend_lb_sg"
+  description = "Allow Inbound HTTP Traffic"
+  vpc_id      = aws_vpc.three_tier_vpc.id
+
+  ingress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+
 resource "aws_security_group" "three_tier_frontend_app_sg" {
   name        = "three_tier_frontend_app_sg"
   description = "Allow SSH inbound traffic from Bastion, and HTTP inbound traffic from loadbalancer"

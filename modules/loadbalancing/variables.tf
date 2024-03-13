@@ -9,3 +9,9 @@ variable "listener_protocol" {}
 variable "azs" {}
 variable "auto_scale_backend" {}
 variable "auto_scale_frontend" {}
+
+variable "lb_backend_sg" {}
+variable "tg_port_backend" {}
+variable "tg_protocol_backend" {}
+variable "listener_port_backend" {}
+variable "listener_protocol_backend" {}

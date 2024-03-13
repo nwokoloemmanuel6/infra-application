@@ -1,9 +1,10 @@
 #!/bin/bash
-git clone https://github.com/nwokoloemmanuel6/three-tier-app.git
 
-git checkout blog-app
+sleep 100
 
-cd ~/three-tier-app
+git clone https://github.com/nwokoloemmanuel6/infra-application.git
+
+cd ~/infra-application
 
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 
@@ -47,7 +48,8 @@ sudo systemctl restart nginx
 
 # SETTING UP NPM
 
+npm install -g pm2
 
-sudo cd ~/three-tier-app/api && npm install
+sudo cd ~/infra-application/api && npm install
 
 pm2 start npm --name "api" -- run start

@@ -1,9 +1,10 @@
 #!/bin/bash
-git clone https://github.com/nwokoloemmanuel6/three-tier-app.git
 
-git checkout blog-app
+sleep 100
 
-cd three-tier-app
+git clone https://github.com/nwokoloemmanuel6/infra-application.git
+
+cd ~/infra-application
 
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 
@@ -48,10 +49,10 @@ sudo systemctl restart nginx
 # SETTING UP NPM
 
 
-sudo cd ~/three-tier-app/client && npm install
+sudo cd ~/infra-application/client && npm install
 
 npm run build 
 
-sudo cp -r build /var/www/client
+sudo cp -r ~/infra-application/client/build /var/www/client
 
 sudo systemctl restart nginx

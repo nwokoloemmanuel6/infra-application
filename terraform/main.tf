@@ -64,6 +64,11 @@ module "loadbalancing" {
   azs               = 2
   auto_scale_backend = module.compute.auto_scale_backend
   auto_scale_frontend = module.compute.auto_scale_frontend
+  lb_backend_sg = module.networking.lb_backend_sg
+  tg_port_backend = 8800
+  tg_protocol_backend  = "HTTP"
+  listener_port_backend   = 8800
+  listener_protocol_backend  = "HTTP"
 }
 
 
