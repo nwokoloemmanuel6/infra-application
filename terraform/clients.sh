@@ -53,6 +53,6 @@ sudo cd ~/infra-application/client && npm install
 
 npm run build 
 
-sudo cp -r ~/infra-application/client/build /var/www/client
+
 
 sudo systemctl restart nginx
